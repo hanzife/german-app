@@ -1,0 +1,339 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: #F5F8FF;
+}
+
+/* Slide label */
+.fixed-slide-label {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 32px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #BA7CD8 0%, #7734D9 100%);
+    width: fit-content;
+    z-index: 10;
+}
+
+.slide-label-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.slide-label-text {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+/* End Slide Label */
+
+.slider-container {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    overflow: hidden;
+    border-radius: 10px;
+    /* box-shadow: 0 6px 22px rgba(0, 0, 0, 0.08); */
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    height: auto;
+    text-align: center;
+    font-size: 24px;
+    padding: 20px;
+    /* background: #fff; */
+    color: #000;
+    box-sizing: border-box;
+    border-radius: 22px;
+    overflow: hidden;
+    
+}
+
+
+.slide-title {
+    font-size: 22px;
+    text-transform: uppercase;
+    /* All caps */
+    /* Custom color */
+    margin: 0 0 20px;
+}
+
+.slide-description {
+    font-size: 16px;
+    /* Font size */
+    color: #70658B;
+    /* Custom color */
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.slide-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    gap: 0;
+    /* spacing handled by li + border */
+    padding: 0;
+    margin-top: 16px;
+    list-style: none;
+    /* remove bullets for lists */
+}
+
+/* Remove divider from last item */
+.slide-content li:last-child {
+    border-bottom: none;
+}
+
+/* Left term / label */
+.slide-content .left {
+    color: #7734D9;
+    font-weight: 600;
+}
+
+/* Right translation / value */
+.slide-content .right {
+    color: #888;
+    font-weight: 400;
+}
+
+
+
+/* Each row / list item */
+.slide-content li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+    /* soft grey divider */
+}
+
+
+.slider-controls {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    width: 90%;
+    max-width: 600px;
+    padding: 10px 0;
+    /* background: rgba(255, 255, 255, 0.9); */
+    z-index: 100;
+    /* box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); */
+}
+
+
+
+.lesson-info-container {
+    display: flex;
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically */
+    gap: 15px;
+    /* Space between containers */
+    margin-top: 20px;
+}
+
+.lesson-level-container,
+.lesson-duration-container {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #FBFAFE, #EBE6FC);
+    border: 1px solid #DED3F9;
+    gap: 5px;
+    /* Space between icon and text */
+}
+
+.lesson-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.lesson-level-text,
+.lesson-duration-text {
+    font-size: 14px;
+    color: #6B27D9;
+    font-weight: 500;
+}
+
+
+.slider-btn {
+    padding: 8px 12px;
+    border: none;
+    background: linear-gradient(135deg, #7734D9 0%, #BA7CD8 100%);
+    /* Bottom-left to top-right */
+    color: #fff;
+    cursor: pointer;
+    border-radius: 30px;
+    font-size: 18px;
+    width: 100px;
+    /* Fixed width */
+    padding: 16px 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.2s;
+}
+
+.start-lesson-btn {
+    margin-top: 16px;
+    padding: 12px 24px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #7734D9 0%, #BA7CD8 100%);
+    color: #fff;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+
+.pagination {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-buttons {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 16px;
+}
+
+.pagination-dot {
+    width: 18px;
+    height: 6px;
+    border-radius: 2px;
+    background-color: #D1BBF5;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pagination-dot.active {
+    background: #7734D9;
+}
+
+
+/* Practice number circle */
+.practice-number {
+    width: 60px;
+    height: 60px;
+    background: #B652E2;
+    color: #fff;
+    font-weight: 700;
+    font-size: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    /* center horizontally */
+}
+
+/* Practice content */
+.slide-content.practice-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0 20px;
+    text-align: center;
+}
+
+
+/* German sentence and English translation */
+.german-sentence {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.english-translation {
+    font-size: 16px;
+    color: #888;
+    margin-bottom: 12px;
+}
+
+/* Answer buttons */
+.practice-answers {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.answer {
+    background: #F5F8FF;
+    padding: 12px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+
+.answer.correct.selected {
+    background: #4CAF50;
+    /* green for correct */
+    color: #fff;
+}
+
+.answer.selected.wrong {
+    background: #F44336; /* red */
+    color: #fff;
+}
+.feedback {
+    display: none;
+    margin-top: 12px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Feedback text */
+.correct-feedback {
+    display: none;
+    font-size: 14px;
+    background-color: #DFF5E0;
+    /* soft green */
+    color: #4CAF50;
+    margin-top: 8px;
+}
+
+.correct-feedback.show {
+    display: block;
+    background-color: #FDE2E2;
+    /* soft red */
+    color: #F44336;
+    font-weight: 600;
+}

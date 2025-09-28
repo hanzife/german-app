@@ -1,0 +1,372 @@
+<style>
+    /* Global Styles */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Inter', sans-serif;
+        background: #F5F8FF;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+    }
+
+    /* Main Slider Container */
+    .slider-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+        max-width: 380px;
+        margin: 0 auto;
+    }
+
+    h2 {
+        font-size: 22px;
+        text-transform: uppercase;
+        color: #000000;
+        /* black */
+        font-weight: 700;
+        /* optional: makes it bold */
+        margin: 0;
+        /* optional: remove default margin */
+    }
+
+    /* Slider Area */
+    .slider {
+        display: flex;
+        overflow: hidden;
+        width: 100%;
+        box-shadow: 0 6px 22px rgba(0, 0, 0, 0.08);
+        scroll-behavior: smooth;
+    }
+
+    /* Each Slide (Card) */
+    .slide {
+        /* position: relative; */
+        min-width: 100%;
+        box-sizing: border-box;
+        background: white;
+        border-radius: 20px;
+        padding: 24px;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .slide h2 {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 12px;
+        color: #000;
+        letter-spacing: 0.5px;
+    }
+
+    .slide p {
+        font-size: 14px;
+        line-height: 1.5;
+        color: #6D6D7A;
+        margin-bottom: 20px;
+    }
+
+    /* Info Tags */
+    .lesson-info {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .lesson-label {
+        position: absolute;
+        top: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 12px;
+        color: #ffffff;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 22px;
+        background: linear-gradient(90deg, #9B5CFF, #A56DFF);
+        z-index: 10;
+
+    }
+
+
+    .info-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 22px;
+        font-weight: 500;
+        padding: 6px 12px;
+        border-radius: 10px;
+        background: #F7F3FF;
+        color: #9B5CFF;
+    }
+
+    /* Slider Controls */
+    .slider-controls {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 8px;
+    }
+
+    /* Navigation Buttons */
+    .slider-btn {
+        background: white;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 50%;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: background 0.2s ease-in-out;
+    }
+
+    .slider-btn:hover {
+        background: #F3EFFF;
+    }
+
+    /* Pagination Dots */
+    .pagination {
+        display: flex;
+        gap: 8px;
+    }
+
+    .pagination .dot {
+        width: 24px;
+        height: 6px;
+        border-radius: 3px;
+        background: #E3D8FF;
+        transition: background 0.3s, width 0.3s;
+    }
+
+    .pagination .dot.active {
+        background: #9B5CFF;
+        width: 28px;
+    }
+
+    /* Start Lesson Button */
+    .start-btn {
+        background: linear-gradient(90deg, #9B5CFF, #A56DFF);
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        padding: 14px 24px;
+        border-radius: 999px;
+        border: none;
+        width: 80%;
+        max-width: 320px;
+        box-shadow: 0 8px 20px rgba(155, 92, 255, 0.4);
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-top: 12px;
+    }
+</style>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Lesson Slider</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="slider-container">
+        <div id="slider" class="slider"></div>
+
+        <div class="slider-controls">
+            <button id="prevBtn" class="slider-btn">&#8592;</button>
+            <div id="pagination" class="pagination"></div>
+            <button id="nextBtn" class="slider-btn">&#8594;</button>
+        </div>
+    </div>
+
+    <script>
+        // Example dynamic JSON data
+        const lessonData = [
+            {
+                type: "lesson",
+                title: "Personalpronomen",
+                description: "German pronouns are a must-know! They are like tiny words that stand in for nouns, helping you avoid repetition. In this lesson, we'll focus on the personal pronouns in the nominative case.",
+                level: "Beginner",
+                duration: "5 min"
+            },
+            {
+                type: "grammar_tip",
+                title: "Singular & Plural Pronouns",
+                description: "These are used for one person or thing. Note the formal and informal 'you'.",
+                content: [
+                    "ich - I",
+                    "du - You (informal)",
+                    "er - He",
+                    "sie - She",
+                    "es - It"
+                ]
+            },
+            {
+                type: "lesson",
+                title: "Personalpronomen",
+                description: "German pronouns are a must-know! They are like tiny words that stand in for nouns, helping you avoid repetition. In this lesson, we'll focus on the personal pronouns in the nominative case.",
+                level: "Beginner",
+                duration: "5 min"
+            },
+
+            {
+                type: "lesson",
+                title: "Personalpronomen",
+                description: "German pronouns are a must-know! They are like tiny words that stand in for nouns, helping you avoid repetition. In this lesson, we'll focus on the personal pronouns in the nominative case.",
+                level: "Beginner",
+                duration: "5 min"
+            },
+
+
+            {
+                type: "practice",
+                title: "Practice",
+                question: "... bin müde. (I am tired)",
+                options: [
+                    { text: "ich", correct: true },
+                    { text: "er", correct: false },
+                    { text: "sie", correct: false }
+                ],
+                answer: "Excellent!"
+            }
+        ];
+
+        const slider = document.getElementById("slider");
+        const pagination = document.getElementById("pagination");
+        let currentIndex = 0;
+
+        // Floating label at top of page
+        const floatingLabel = document.createElement("div");
+        floatingLabel.classList.add("lesson-label");
+
+        // Add icon
+        const icon = document.createElement("span");
+        icon.innerText = "📘"; // your icon
+        floatingLabel.prepend(icon);
+
+        // Add current slide text
+        floatingLabel.appendChild(document.createTextNode(lessonData[0].type.replace('_', ' ').toUpperCase()));
+
+        // Append to body
+        document.body.appendChild(floatingLabel);
+
+        function renderSlides() {
+            slider.innerHTML = "";
+            pagination.innerHTML = "";
+
+            lessonData.forEach((item, index) => {
+                const slide = document.createElement("div");
+                slide.classList.add("slide");
+
+                // Card header label
+                // const label = document.createElement("div");
+                // label.classList.add("lesson-label");
+                // label.innerText = item.type.replace('_', ' ').toUpperCase();
+                // slide.appendChild(label);
+
+
+                const title = document.createElement("h2");
+                title.innerText = item.title;
+                slide.appendChild(title);
+
+                if (item.description) {
+                    const desc = document.createElement("p");
+                    desc.innerText = item.description;
+                    slide.appendChild(desc);
+                }
+
+                if (item.content) {
+                    const list = document.createElement("ul");
+                    item.content.forEach(c => {
+                        const li = document.createElement("li");
+                        li.innerText = c;
+                        list.appendChild(li);
+                    });
+                    slide.appendChild(list);
+                }
+
+                if (item.options) {
+                    item.options.forEach(opt => {
+                        const btn = document.createElement("button");
+                        btn.classList.add("option-btn");
+                        btn.innerText = opt.text;
+                        btn.onclick = () => alert(opt.correct ? item.answer : "Try Again");
+                        slide.appendChild(btn);
+                    });
+                }
+
+                slider.appendChild(slide);
+
+                const dot = document.createElement("span");
+                dot.classList.add("dot");
+                if (index === currentIndex) dot.classList.add("active");
+                dot.addEventListener("click", () => goToSlide(index));
+                pagination.appendChild(dot);
+            });
+
+            updateSlidePosition();
+        }
+
+        function updateSlidePosition() {
+            const slides = document.querySelectorAll(".slide");
+            slides.forEach((slide, index) => {
+                slide.style.transform = `translateX(${100 * (index - currentIndex)}%)`;
+                
+            });
+
+            document.querySelectorAll(".dot").forEach((dot, index) => {
+                dot.classList.toggle("active", index === currentIndex);
+            });
+        }
+
+        function nextSlide() {
+            if (currentIndex < lessonData.length - 1) {
+                currentIndex++;
+                updateSlidePosition();
+                updateFloatingLabel();
+            }
+        }
+
+        function prevSlide() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateSlidePosition();
+                updateFloatingLabel();
+            }
+        }
+
+        function goToSlide(index) {
+            currentIndex = index;
+            updateSlidePosition();
+        }
+        function updateFloatingLabel() {
+            floatingLabel.innerHTML = "📘 " + lessonData[currentIndex].type.replace('_', ' ').toUpperCase();
+        }
+        document.getElementById("nextBtn").addEventListener("click", nextSlide);
+        document.getElementById("prevBtn").addEventListener("click", prevSlide);
+
+        renderSlides();
+    </script>
+</body>
+
+</html>

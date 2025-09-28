@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>German Course – Kein / Keine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Fixed Lesson Label -->
+    <div class="fixed-slide-label">
+        <img src="icons/lesson-icon.svg" alt="Icon" class="slide-label-icon">
+        <span class="slide-label-text">LESSON</span>
+    </div>
+
+    <div class="slider-container">
+        <div id="slider" class="slider">
+
+            <!-- Slide 1 - Lesson Intro -->
+            <div class="slide" data-label="lesson" data-icon="icons/lesson-icon.svg">
+                <h2 class="slide-title">Kein / Keine</h2>
+                <p class="slide-description">
+                    <b>Kein / Keine</b> are used to negate nouns, meaning "no" or "not any".
+                    <br><br>
+                    Use <b>kein</b> with masculine and neuter nouns, and <b>keine</b> with feminine or plural nouns.
+                </p>
+                <div class="lesson-info-container">
+                    <div class="lesson-level-container">
+                        <img src="icons/lesson-level-begginer.svg" alt="Level Icon" class="lesson-icon">
+                        <span class="lesson-level-text">Beginner</span>
+                    </div>
+                    <div class="lesson-duration-container">
+                        <img src="icons/lesson-duration.svg" alt="Duration Icon" class="lesson-icon">
+                        <span class="lesson-duration-text">5 min</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 - Examples -->
+            <div class="slide" data-label="lesson" data-icon="icons/lesson-icon.svg">
+                <h2 class="slide-title">Examples</h2>
+                <p class="slide-description">Here are some real-world examples of <b>kein</b> and <b>keine</b> in use:</p>
+                <ul class="slide-content">
+                    <li><span class="left grey">Das ist <b>kein</b> Apfel.</span><span class="right">That is not an apple.</span></li>
+                    <div class="divider"></div>
+                    <li><span class="left grey">Ich habe <b>keinen</b> Hund.</span><span class="right">I have no dog.</span></li>
+                    <div class="divider"></div>
+                    <li><span class="left grey">Wir haben <b>keine</b> Bücher.</span><span class="right">We have no books.</span></li>
+                    <div class="divider"></div>
+                    <li><span class="left grey">Sie hat <b>keine</b> Zeit.</span><span class="right">She has no time.</span></li>
+                </ul>
+            </div>
+
+            <!-- Slide 3 - Grammar Tip -->
+            <div class="slide" data-label="grammar tip" data-icon="icons/grammar-icon.svg">
+                <h2 class="slide-title">Grammar Tip</h2>
+                <p class="slide-description">
+                    <b>Kein / Keine</b> work like <b>ein / eine</b> but with negation.
+                    <br><br>
+                    Example: <br><b>ein Mann</b> → <b>kein Mann</b> (no man) <br>
+                    <b>eine Frau</b> → <b>keine Frau</b> (no woman)
+                </p>
+            </div>
+
+            <!-- Slide 4 - Practice 1 -->
+            <div class="slide" data-label="practice" data-icon="icons/practice-icon.svg">
+                <div class="practice-container">
+                    <div class="practice-number">1</div>
+                    <p class="german-sentence">Das ist ... Auto.</p>
+                    <p class="english-translation">That is not a car.</p>
+                    <div class="practice-answers">
+                        <div class="answer correct" data-correct="true">kein</div>
+                        <div class="answer wrong" data-correct="false">keine</div>
+                        <div class="answer wrong" data-correct="false">nicht</div>
+                    </div>
+                    <div class="feedback correct-feedback hidden">✅ Correct: "Das ist kein Auto."</div>
+                    <div class="feedback wrong-feedback hidden">❌ Wrong! Correct answer: “kein”.</div>
+                </div>
+            </div>
+
+            <!-- Slide 5 - Practice 2 -->
+            <div class="slide" data-label="practice" data-icon="icons/practice-icon.svg">
+                <div class="practice-container">
+                    <div class="practice-number">2</div>
+                    <p class="german-sentence">Sie hat ... Katze.</p>
+                    <p class="english-translation">She has no cat.</p>
+                    <div class="practice-answers">
+                        <div class="answer wrong" data-correct="false">kein</div>
+                        <div class="answer correct" data-correct="true">keine</div>
+                        <div class="answer wrong" data-correct="false">nicht</div>
+                    </div>
+                    <div class="feedback correct-feedback hidden">✅ Correct: "Sie hat keine Katze."</div>
+                    <div class="feedback wrong-feedback hidden">❌ Wrong! Correct answer: “keine”.</div>
+                </div>
+            </div>
+
+            <!-- Slide 6 - Practice 3 -->
+            <div class="slide" data-label="practice" data-icon="icons/practice-icon.svg">
+                <div class="practice-container">
+                    <div class="practice-number">3</div>
+                    <p class="german-sentence">Wir haben ... Zeit.</p>
+                    <p class="english-translation">We have no time.</p>
+                    <div class="practice-answers">
+                        <div class="answer correct" data-correct="true">keine</div>
+                        <div class="answer wrong" data-correct="false">kein</div>
+                        <div class="answer wrong" data-correct="false">nicht</div>
+                    </div>
+                    <div class="feedback correct-feedback hidden">✅ Correct: "Wir haben keine Zeit."</div>
+                    <div class="feedback wrong-feedback hidden">❌ Wrong! Correct answer: “keine”.</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="slider-controls">
+        <div id="pagination" class="pagination"></div>
+        <div class="nav-buttons">
+            <button id="prevBtn" class="slider-btn">&#8592;</button>
+            <button id="nextBtn" class="slider-btn">&#8594;</button>
+        </div>
+        <button class="start-lesson-btn">Start Lesson <img src="icons/next-arrow.svg" alt="Next"></button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Slider</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Slide fixed label always at the top -->
+    <div class="fixed-slide-label">
+        <img src="icons/lesson-icon.svg" alt="Icon" class="slide-label-icon">
+        <span class="slide-label-text">LESSON</span>
+    </div>
+
+    <div class="slider-container">
+        <div id="slider" class="slider">
+            <!-- Slide 1 -->
+            <div class="slide" data-label="lesson" data-icon="icons/lesson-icon.svg">
+
+                <h2 class="slide-title">Personalpronomen</h2>
+                <p class="slide-description">
+                    German pronouns are a must-know! They are like tiny words that stand in for nouns, helping you avoid
+                    repetition. In this lesson, we'll focus on the personal pronouns in the nominative case.
+                </p>
+                <div class="lesson-info-container">
+                    <div class="lesson-level-container">
+                        <img src="icons/lesson-level-begginer.svg" alt="Level Icon" class="lesson-icon">
+                        <span class="lesson-level-text">Beginner</span>
+                    </div>
+                    <div class="lesson-duration-container">
+                        <img src="icons/lesson-duration.svg" alt="Duration Icon" class="lesson-icon">
+                        <span class="lesson-duration-text">5 min</span>
+                    </div>
+                </div>
+            </div>
+            <!-- End Slide 1 -->
+            <!-- Slide 2 -->
+            <div class="slide" data-label="lesson" data-icon="icons/lesson-icon.svg">
+                <h2 class="slide-title">Singular Pronouns</h2>
+                <p class="slide-description">
+                    These are used for one person or thing. Note the formal and informal 'you'
+                </p>
+
+                <!-- Example structured content (adapts to any type) -->
+
+                <ul class="slide-content">
+                    <li>
+                        <span class="left grey">Ich</span>
+                        <span class="right">I</span>
+                    </li>
+                    <div class="divider"></div>
+
+                    <li>
+                        <span class="left">Du</span>
+                        <span class="right grey">You (informal)</span>
+                    </li>
+                    <li>
+                        <span class="left">Er</span>
+                        <span class="right grey">He</span>
+                    </li>
+                    <li>
+                        <span class="left grey">Sie</span>
+                        <span class="right grey">She</span>
+                    </li>
+                    <li>
+                        <span class="left ">Es</span>
+                        <span class="right grey">It</span>
+                    </li>
+                </ul>
+
+
+            </div>
+            <!-- End Slide 2 -->
+
+            <!-- Slide 3 -->
+
+
+            <div class="slide" data-label="lesson" data-icon="icons/lesson-icon.svg">
+
+                <h2 class="slide-title">Plural Pronouns</h2>
+                <p class="slide-description">
+                    These are used for more than one person or thing. The formal 'you' is also used for a group </p>
+
+                <!-- Example structured content (adapts to any type) -->
+
+                <ul class="slide-content">
+                    <li>
+                        <span class="left grey">Wir</span>
+                        <span class="right">We</span>
+                    </li>
+                    <div class="divider"></div>
+
+                    <li>
+                        <span class="left">Ihr</span>
+                        <span class="right grey">You</span>
+                    </li>
+                    <li>
+                        <span class="left">Sie</span>
+                        <span class="right grey">They (plural, informal)</span>
+                    </li>
+                    <li>
+                        <span class="left grey">Sie</span>
+                        <span class="right grey">You (formal, singular & plural)</span>
+                    </li>
+
+                </ul>
+            </div>
+
+            <!-- End Slide 3 -->
+
+            <!-- Slide 4 -->
+            <div class="slide" data-label="practice" data-icon="icons/practice-icon.svg">
+
+                <!-- Practice Number Circle -->
+                <div class="practice-number">1</div>
+
+                <!-- Practice Content -->
+                <div class="slide-content practice-content">
+                    <p class="german-sentence">...Bin müde.</p>
+                    <p class="english-translation">I am tired.</p>
+
+                    <!-- Answers -->
+                    <div class="practice-answers">
+                        <div class="answer correct" data-correct="true">Ich</div>
+                        <div class="answer wrong" data-correct="false">Er</div>
+                        <div class="answer wrong" data-correct="false">Sie</div>
+                    </div>
+
+                    <!-- Feedback containers -->
+                    <div class="feedback correct-feedback"> ✅ Excellent !</div>
+                    <div class="feedback wrong-feedback">
+                        ❌ Wrong!
+                        <p class="correct-feedback"> Wrong! The correct answer is “Ich”</p>
+
+                    </div>
+                </div>
+            </div>
+            <!-- End Slide 4-->
+
+            <div class="slide" data-label="practice" data-icon="icons/practice-icon.svg">
+                <div class="practice-container">
+                    <!-- Practice Number (auto populated by JS based on index) -->
+                    <div class="practice-number">2</div>
+
+                    <!-- Practice Question -->
+                    <div class="practice-question">
+                        <p class="german-sentence">... ist Lehrer.</p>
+                        <p class="english-translation">He is a teacher.</p>
+                    </div>
+
+                    <!-- Answers -->
+                    <div class="practice-answers">
+                        <div class="answer wrong" data-correct="false">Ich</div>
+                        <div class="answer correct" data-correct="true">Er</div>
+                        <div class="answer wrong" data-correct="false">Sie</div>
+                    </div>
+
+                    <!-- Feedback (hidden by default) -->
+                    <div class="feedback correct-feedback hidden">
+                        ✅ Excellent!
+                    </div>
+                    <div class="feedback wrong-feedback hidden">
+                        ❌ Wrong!
+                        <p class="correct-feedback">The correct answer is “Er”</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide" data-label="grammar tip" data-icon="icons/grammar-icon.svg">
+
+
+                Slide 6
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="slider-controls">
+        <div id="pagination" class="pagination"></div>
+
+        <div class="nav-buttons">
+            <button id="prevBtn" class="slider-btn">&#8592;</button>
+            <button id="nextBtn" class="slider-btn">&#8594;</button>
+        </div>
+        <button class="start-lesson-btn">Start Lesson <img src="icons/next-arrow.svg" alt="Next"></button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
