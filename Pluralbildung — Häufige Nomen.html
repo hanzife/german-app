@@ -10,24 +10,30 @@
 
 <body>
 
-    <!-- Slide fixed label always at the top -->
-    <div class="fixed-slide-label">
-        <img src="icons/lesson-icon.svg" alt="Icon" class="slide-label-icon" />
-        <span class="slide-label-text">LESSON</span>
-    </div>
+    <header>
+        <!-- Progress Bar at the very top -->
+        <div class="progress-bar-container">
+            <div class="progress-bar-fill"></div>
+        </div>
+        <!-- Slide fixed label always at the top -->
+        <div class="fixed-slide-label">
+            <img src="icons/lesson-icon.svg" alt="Icon" class="slide-label-icon" />
+            <span class="slide-label-text">LESSON</span>
+        </div>
+    </header>
 
-    <div class="slider-container">
+    <!-- Slider -->
+    <main class="slider-container">
         <div id="slider" class="slider">
-
+            <!-- slides go here -->
             <!-- Slide 1: Intro -->
-            <div class="slide" data-label="lesson" data-icon="icons/lesson-icon.svg">
-                <h2 class="slide-title">Pluralbildung — Häufige Nomen</h2>
+            <div class="slide slide-first " data-label="lesson" data-icon="icons/lesson-icon.svg">
+                <h2 class="slide-title">Pluralbildung Häufige Nomen</h2>
                 <p class="slide-description">
-                    In dieser Lektion lernen wir, wie man bei häufigen deutschen Nomen den Plural bildet. Es gibt mehrere
-                    Muster: -e, -en, -er, -s, keine Änderung, und Umlaut + Endung. Außerdem ändert sich der Artikel im Plural
-                    fast immer zu <strong>die</strong>.
+                    In this lesson, we will learn how to form the plural of common German nouns. There are several
+                    patterns: <strong>-e, -en, -er, -s,</strong>. no change, and umlaut + ending. In addition, the
+                    article almost always changes to <strong>die</strong>. in the plural.
                 </p>
-
                 <div class="lesson-info-container">
                     <div class="lesson-level-container">
                         <img src="icons/lesson-level-begginer.svg" alt="Level Icon" class="lesson-icon" />
@@ -42,19 +48,20 @@
             <!-- End Slide 1 -->
 
             <!-- Slide 2: Musterübersicht -->
-            <div class="slide" data-label="lesson" data-icon="icons/lesson-icon.svg">
+            <div class="slide " data-label="lesson" data-icon="icons/lesson-icon.svg">
+
                 <h2 class="slide-title">Übersicht: Pluralmuster</h2>
-                <p class="slide-description">Die wichtigsten Muster kurz zusammengefasst:</p>
+                <h3 class="slide-title">Plural Patterns</h3>
+
+                <p class="slide-description">The most common ways to form plurals in German. Learn these patterns to
+                    recognize and build plurals more easily.</p>
 
                 <ul class="slide-content">
-                    <li><span class="left grey">-e</span><span class="right">der Hund → die Hunde</span></li>
-                    <div class="divider"></div>
-
-                    <li><span class="left">-en</span><span class="right grey">die Lampe → die Lampen</span></li>
-                    <li><span class="left">-er (+ Umlaut möglich)</span><span class="right grey">der Mann → die Männer</span></li>
-                    <li><span class="left grey">-s</span><span class="right grey">das Auto → die Autos (häufig bei Fremdwörtern)</span></li>
-                    <li><span class="left">keine Änderung</span><span class="right grey">das Mädchen → die Mädchen</span></li>
-                    <li><span class="left grey">Umlaut + Endung</span><span class="right grey">der Apfel → die Äpfel</span></li>
+                    <li><span class="left">die Lampe → die Lampen</span><span class="right grey">(-en ending)</span>
+                    </li>
+                    <li><span class="left">der Tisch → die Tische</span><span class="right grey">(-e ending)</span></li>
+                    <li><span class="left">das Auto → die Autos</span><span class="right grey">(-s ending, common for
+                            loanwords)</span></li>
                 </ul>
             </div>
             <!-- End Slide 2 -->
@@ -69,10 +76,6 @@
                     <div class="divider"></div>
 
                     <li><span class="left">die Lampe</span><span class="right grey">die Lampen (-en)</span></li>
-                    <li><span class="left">der Mann</span><span class="right grey">die Männer (Umlaut + -er)</span></li>
-                    <li><span class="left grey">das Auto</span><span class="right grey">die Autos (-s)</span></li>
-                    <li><span class="left">das Mädchen</span><span class="right grey">die Mädchen (keine Änderung)</span></li>
-                    <li><span class="left grey">der Apfel</span><span class="right grey">die Äpfel (Umlaut + keine Endung / -e)</span></li>
                 </ul>
             </div>
             <!-- End Slide 3 -->
@@ -91,37 +94,112 @@
                         <div class="answer wrong" data-correct="false">die Tischen</div>
                     </div>
 
-                    <div class="feedback correct-feedback"> ✅ Excellent! „der Tisch“ → „die Tische“.</div>
+                    <!-- <div class="feedback correct-feedback"> ✅ Excellent! „der Tisch“ → „die Tische“.</div>
                     <div class="feedback wrong-feedback">
                         ❌ Wrong!
                         <p class="correct-feedback">Die richtige Antwort ist „die Tische“ (Endung -e).</p>
+                    </div> -->
+                </div>
+            </div>
+            <!-- End Slide 4 -->
+            <!-- Slide 5: Practice 2 (Drag/Drop Version) -->
+            <div class="slide" data-label="practice" data-type="dragdrop" data-icon="icons/practice-icon.svg"
+                data-correct-sentence="The cars are plural">
+                <div class="practice-number">2</div>
+
+                <div class="slide-content practice-content">
+                    <p class="german-sentence">Plural: die Autos</p>
+                    <p class="english-translation">Form the correct English sentence:</p>
+
+                    <div class="answer-zone" id="answer-zone-2"></div>
+
+                    <div class="word-bank">
+                        <div class="word" draggable="true">cars</div>
+                        <div class="word" draggable="true">The</div>
+                        <div class="word" draggable="true">are</div>
+                        <div class="word" draggable="true">plural</div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Slide 5 -->
+            <!-- Slide 4: Practice 1 (Multiple Choice) -->
+            <div class="slide" data-label="practice" data-icon="icons/practice-icon.svg">
+                <div class="practice-number">1</div>
+
+                <div class="slide-content practice-content">
+                    <p class="german-sentence">Singular: der Tisch → Plural: ...</p>
+                    <p class="english-translation">Singular: the table → Plural: ...</p>
+
+                    <div class="practice-answers">
+                        <div class="answer" data-correct="true">die Tische</div>
+                        <div class="answer" data-correct="false">die Tischs</div>
+                        <div class="answer" data-correct="false">die Tischen</div>
                     </div>
                 </div>
             </div>
             <!-- End Slide 4 -->
 
-            <!-- Slide 5: Practice 2 -->
-            <div class="slide" data-label="practice" data-icon="icons/practice-icon.svg">
+            <!-- Slide 5: Practice 2 (Drag/Drop) -->
+            <div class="slide" data-label="practice" data-type="dragdrop" data-icon="icons/practice-icon.svg"
+                data-correct-sentence="The cars are plural">
                 <div class="practice-number">2</div>
 
                 <div class="slide-content practice-content">
-                    <p class="german-sentence">Singular: das Auto → Plural: ...</p>
-                    <p class="english-translation">Singular: the car → Plural: ...</p>
+                    <p class="german-sentence">Plural: die Autos</p>
+                    <p class="english-translation">Form the correct English sentence:</p>
 
-                    <div class="practice-answers">
-                        <div class="answer wrong" data-correct="false">die Autosen</div>
-                        <div class="answer correct" data-correct="true">die Autos</div>
-                        <div class="answer wrong" data-correct="false">die Auten</div>
-                    </div>
+                    <!-- Answer Zone -->
+                    <div class="answer-zone" id="answer-zone-2"></div>
 
-                    <div class="feedback correct-feedback"> ✅ Excellent! „das Auto“ → „die Autos“ (-s).</div>
-                    <div class="feedback wrong-feedback">
-                        ❌ Wrong!
-                        <p class="correct-feedback">Die richtige Antwort ist „die Autos“ (Endung -s, typisch bei Fremdwörtern).</p>
+                    <!-- Draggable Words -->
+                    <div class="word-bank">
+                        <div class="word" draggable="true">cars</div>
+                        <div class="word" draggable="true">The</div>
+                        <div class="word" draggable="true">are</div>
+                        <div class="word" draggable="true">plural</div>
                     </div>
                 </div>
             </div>
             <!-- End Slide 5 -->
+
+            <!-- Slide 6: Practice 3 (Multiple Choice) -->
+            <div class="slide" data-label="practice" data-icon="icons/practice-icon.svg">
+                <div class="practice-number">3</div>
+
+                <div class="slide-content practice-content">
+                    <p class="german-sentence">Singular: die Blume → Plural: ...</p>
+                    <p class="english-translation">Singular: the flower → Plural: ...</p>
+
+                    <div class="practice-answers">
+                        <div class="answer" data-correct="true">die Blumen</div>
+                        <div class="answer" data-correct="false">die Blumens</div>
+                        <div class="answer" data-correct="false">die Blumes</div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Slide 6 -->
+
+            <!-- Slide 7: Practice 4 (Drag/Drop) -->
+            <div class="slide" data-label="practice" data-type="dragdrop" data-icon="icons/practice-icon.svg"
+                data-correct-sentence="The flowers are beautiful">
+                <div class="practice-number">4</div>
+
+                <div class="slide-content practice-content">
+                    <p class="german-sentence">Plural: die Blumen</p>
+                    <p class="english-translation">Form the correct English sentence:</p>
+
+                    <div class="answer-zone" id="answer-zone-4"></div>
+
+                    <div class="word-bank">
+                        <div class="word" draggable="true">beautiful</div>
+                        <div class="word" draggable="true">flowers</div>
+                        <div class="word" draggable="true">The</div>
+                        <div class="word" draggable="true">are</div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Slide 7 -->
+
 
             <!-- Slide 6: Practice 3 -->
             <div class="slide" data-label="practice" data-icon="icons/practice-icon.svg">
@@ -137,7 +215,8 @@
                         <div class="answer wrong" data-correct="false">die Männers</div>
                     </div>
 
-                    <div class="feedback correct-feedback"> ✅ Excellent! „der Mann“ → „die Männer“ (Umlaut + -er).</div>
+                    <div class="feedback correct-feedback"> ✅ Excellent! „der Mann“ → „die Männer“ (Umlaut + -er).
+                    </div>
                     <div class="feedback wrong-feedback">
                         ❌ Wrong!
                         <p class="correct-feedback">Die richtige Antwort ist „die Männer“ (Umlaut + -er).</p>
@@ -154,30 +233,43 @@
                 </p>
 
                 <ul class="slide-content">
-                    <li><span class="left grey">Artikel im Plural</span><span class="right">Fast immer: <strong>die</strong></span></li>
+                    <li><span class="left grey">Artikel im Plural</span><span class="right">Fast immer:
+                            <strong>die</strong></span></li>
                     <div class="divider"></div>
 
-                    <li><span class="left">Umlaut</span><span class="right grey">Viele kurze männliche Nomen bekommen Umlaut im Plural (z. B. Mann → Männer, Apfel → Äpfel).</span></li>
-                    <li><span class="left grey">Endungen</span><span class="right grey">-e, -en, -er, -s oder keine Endung — keine 100% Regel, daher Vokabeln lernen.</span></li>
-                    <li><span class="left">Fremdwörter</span><span class="right grey">Häufig -s (Auto → Autos, Hotel → Hotels).</span></li>
-                    <li><span class="left grey">Neutra auf -chen/-lein</span><span class="right grey">Keine Änderung im Plural (das Mädchen → die Mädchen).</span></li>
+                    <li><span class="left">Umlaut</span><span class="right grey">Viele kurze männliche Nomen
+                            bekommen
+                            Umlaut im Plural (z. B. Mann → Männer, Apfel → Äpfel).</span></li>
+                    <li><span class="left grey">Endungen</span><span class="right grey">-e, -en, -er, -s oder keine
+                            Endung — keine 100% Regel, daher Vokabeln lernen.</span></li>
+                    <li><span class="left">Fremdwörter</span><span class="right grey">Häufig -s (Auto → Autos, Hotel
+                            →
+                            Hotels).</span></li>
+                    <li><span class="left grey">Neutra auf -chen/-lein</span><span class="right grey">Keine Änderung
+                            im
+                            Plural (das Mädchen → die Mädchen).</span></li>
                 </ul>
 
                 <p class="slide-description">
-                    Merke: Lern die häufigen Nomen mit ihrem Plural (z. B. „der Tisch — die Tische“). Muster helfen, aber Ausnahmen sind normal.
+                    Merke: Lern die häufigen Nomen mit ihrem Plural (z. B. „der Tisch — die Tische“). Muster helfen,
+                    aber Ausnahmen sind normal.
                 </p>
             </div>
             <!-- End Slide 7 -->
-
         </div>
-    </div>
+    </main>
 
-    <div class="slider-controls">
-        <div id="pagination" class="pagination"></div>
-        <button class="start-lesson-btn">Start Lesson <img src="icons/next-arrow.svg" alt="Next" /></button>
-    </div>
+    <footer>
+        <div class="feedback-message"></div>
+        <button class="start-lesson-btn">Start Lesson</button>
+    </footer>
+
+
 
     <script src="script.js"></script>
+
+
 </body>
+
 
 </html>

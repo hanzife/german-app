@@ -1,27 +1,42 @@
+/* ------------------ GLOBAL ------------------ */
 body {
-    font-family: Arial, sans-serif;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    flex-direction: column;
+     align-items: flex-start;
+    min-height: 100vh;
     margin: 0;
-    background: #F5F8FF;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #5533DC, #EEA8CF);
 }
 
-/* Slide label */
-.fixed-slide-label {
-    position: fixed;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 32px;
+/* ------------------ HEADER ------------------ */
+header {
+    padding: 20px 8%;
+    box-sizing: border-box;
+    width: 100%;
+
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 12px;
+    background-color: #4F33B9;
     border-radius: 8px;
-    background: linear-gradient(135deg, #BA7CD8 0%, #7734D9 100%);
-    width: fit-content;
-    z-index: 10;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.progress-bar-fill {
+    width: 0%;
+    height: 100%;
+    background-color: #4caf50;
+    transition: width 0.3s ease-in-out;
+}
+
+.fixed-slide-label {
+    display: flex;
+    /* align-items: left; */
+    gap: 6px;
 }
 
 .slide-label-icon {
@@ -30,218 +45,136 @@ body {
 }
 
 .slide-label-text {
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 700;
     text-transform: uppercase;
     color: #fff;
 }
 
-/* End Slide Label */
-
-.slider-container {
+/* ------------------ MAIN / SLIDER ------------------ */
+main.slider-container {
+    flex: 1;
+    display: flex;
+    justify-content: center; /* horizontal center */
+    align-items: flex-start; /* top-align vertically */
+    padding: 0 5% 100px 5%; /* bottom padding for footer */
     position: relative;
-    width: 80%;
-    max-width: 600px;
     overflow: hidden;
-    border-radius: 10px;
-    /* box-shadow: 0 6px 22px rgba(0, 0, 0, 0.08); */
+    width:90%;
 }
 
 .slider {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
+    position: relative;
+    width: 100%;
+    height: 100%;
+
 }
 
 .slide {
-    min-width: 100%;
-    height: auto;
-    text-align: center;
-    font-size: 24px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     padding: 20px;
-    /* background: #fff; */
-    color: #000;
+    border-radius: 12px;
+    background: #fff;
     box-sizing: border-box;
-    border-radius: 22px;
-    overflow: hidden;
+    text-align: left;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    max-height: 100%;
+    overflow-y: auto; /* scroll only inside slide if content too tall */
+}
+
+.slide.active {
+    position: relative;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.slide-first {
+    background: none;
+    color: #fff;
+    text-align: left;
+}
+
+.slide-first .slide-title,
+.slide-first .slide-description {
+    color: #fff;
     
 }
-
-
-.slide-title {
-    font-size: 22px;
-    text-transform: uppercase;
-    /* All caps */
-    /* Custom color */
-    margin: 0 0 20px;
+.slide .slide-title,
+.slide .slide-description {
+    text-align: left;
 }
-
-.slide-description {
-    font-size: 16px;
-    /* Font size */
-    color: #70658B;
-    /* Custom color */
-    line-height: 1.5;
-    margin-bottom: 20px;
+.slide-first .slide-title,
+.slide-first .slide-description {
+    /* if you want first slide still left-aligned, keep this; else remove */
+    text-align: left;
 }
-
 .slide-content {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    font-size: 14px;
-    gap: 0;
-    /* spacing handled by li + border */
-    padding: 0;
-    margin-top: 16px;
-    list-style: none;
-    /* remove bullets for lists */
+    text-align: left;
 }
-
-/* Remove divider from last item */
-.slide-content li:last-child {
-    border-bottom: none;
-}
-
-/* Left term / label */
-.slide-content .left {
-    color: #7734D9;
-    font-weight: 600;
-}
-
-/* Right translation / value */
-.slide-content .right {
-    color: #888;
-    font-weight: 400;
-}
-
-
-
-/* Each row / list item */
-.slide-content li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 0;
-    border-bottom: 1px solid #ddd;
-    /* soft grey divider */
-}
-
-
-.slider-controls {
+/* ------------------ FOOTER ------------------ */
+footer {
     position: fixed;
-    bottom: 32px;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 16px 5%;
+    background: #fff;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    width: 90%;
-    max-width: 600px;
-    padding: 10px 0;
-    /* background: rgba(255, 255, 255, 0.9); */
-    z-index: 100;
-    /* box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); */
+    gap: 12px;
+    box-sizing: border-box;
+    transition: background 0.3s ease;
+    z-index: 10;/*  make sure it's above slides */
 }
 
-
-
-.lesson-info-container {
-    display: flex;
-    justify-content: center;
-    /* Center horizontally */
-    align-items: center;
-    /* Center vertically */
-    gap: 15px;
-    /* Space between containers */
-    margin-top: 20px;
-}
-
-.lesson-level-container,
-.lesson-duration-container {
-    display: flex;
-    align-items: center;
-    padding: 5px 10px;
-    border-radius: 8px;
-    background: linear-gradient(135deg, #FBFAFE, #EBE6FC);
-    border: 1px solid #DED3F9;
-    gap: 5px;
-    /* Space between icon and text */
-}
-
-.lesson-icon {
-    width: 16px;
-    height: 16px;
-}
-
-.lesson-level-text,
-.lesson-duration-text {
-    font-size: 14px;
-    color: #6B27D9;
-    font-weight: 500;
-}
-
-
-.slider-btn {
-    padding: 8px 12px;
-    border: none;
-    background: linear-gradient(135deg, #7734D9 0%, #BA7CD8 100%);
-    /* Bottom-left to top-right */
-    color: #fff;
-    cursor: pointer;
-    border-radius: 30px;
-    font-size: 18px;
-    width: 100px;
-    /* Fixed width */
-    padding: 16px 50px;
-    cursor: pointer;
+footer .feedback-message {
     font-weight: 600;
-    transition: transform 0.2s;
+    font-size: 16px;
+    text-align: left;
 }
 
 .start-lesson-btn {
-    margin-top: 16px;
-    padding: 12px 24px;
-    border-radius: 30px;
-    background: linear-gradient(135deg, #7734D9 0%, #BA7CD8 100%);
-    color: #fff;
+    width: 100%;
+    padding: 14px 0;
+    border-radius: 12px;
     border: none;
+    font-size: 18px;
     font-weight: 600;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    color: #fff;
+    background: linear-gradient(135deg, #7734D9 0%, #BA7CD8 100%);
+    transition: background 0.3s ease;
 }
 
-
-
-.pagination {
-    display: flex;
-    gap: 5px;
-    justify-content: center;
-    align-items: center;
+/* Correct / wrong states */
+footer.correct {
+    background-color: #DFF5E0;
 }
 
-.nav-buttons {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    margin-top: 16px;
+footer.correct .feedback-message {
+    color: #4CAF50;
 }
 
-.pagination-dot {
-    width: 18px;
-    height: 6px;
-    border-radius: 2px;
-    background-color: #D1BBF5;
-    cursor: pointer;
-    transition: background-color 0.3s;
+footer.correct .start-lesson-btn {
+    background-color: #4CAF50;
 }
 
-.pagination-dot.active {
-    background: #7734D9;
+footer.wrong {
+    background-color: #FDE2E2;
 }
 
+footer.wrong .feedback-message {
+    color: #F44336;
+}
+
+footer.wrong .start-lesson-btn {
+    background-color: #F44336;
+}
 
 /* Practice number circle */
 .practice-number {
@@ -255,21 +188,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px auto;
-    /* center horizontally */
+    margin: 0 auto 12px auto;
 }
 
 /* Practice content */
-.slide-content.practice-content {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 0 20px;
-    text-align: center;
-}
-
-
-/* German sentence and English translation */
 .german-sentence {
     font-size: 18px;
     font-weight: 600;
@@ -279,61 +201,178 @@ body {
 .english-translation {
     font-size: 16px;
     color: #888;
-    margin-bottom: 12px;
 }
 
-/* Answer buttons */
+
+/* List container */
+.slide-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+    padding: 0 10px;
+    list-style: none;
+}
+
+/* List items */
+.slide-content li {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd; /* subtle divider */
+    gap: 12px; /* spacing between left and right */
+    line-height: 1.5;
+}
+
+/* Left label */
+.slide-content li .left {
+    flex: 0 0 150px; /* fixed width for label */
+    font-weight: 600;
+    color: #7734D9;
+}
+
+/* Alternating left label color (grey variant) */
+.slide-content li .left.grey {
+    color: #888;
+}
+
+/* Right content */
+.slide-content li .right {
+    flex: 1; /* take remaining width */
+    color: #444;
+}
+
+/* Right content grey text */
+.slide-content li .right.grey {
+    color: #888;
+}
+
+/* Optional: responsive wrap for small screens */
+@media (max-width: 480px) {
+    .slide-content li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .slide-content li .left {
+        flex: none;
+        margin-bottom: 4px;
+    }
+    .slide-content li .right {
+        flex: none;
+    }
+}
+
+
+
+
 .practice-answers {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    padding: 0 10px;
 }
 
+/* Answer card */
 .answer {
-    background: #F5F8FF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 12px 16px;
-    border-radius: 10px;
+    border: 2px solid #ccc; /* default grey border */
+    border-radius: 12px;
     cursor: pointer;
+    background: #f9f9f9; /* default background */
     font-size: 16px;
     font-weight: 500;
-    transition: all 0.2s;
+    transition: all 0.2s ease;
+    position: relative;
 }
 
-
-.answer.correct.selected {
-    background: #4CAF50;
-    /* green for correct */
-    color: #fff;
+/* Hover effect */
+.answer:hover {
+    border-color: #999;
 }
 
+/* Custom radio button */
+.answer::after {
+    content: "";
+    width: 18px;
+    height: 18px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    background: #eee;
+    flex-shrink: 0;
+    margin-left: 12px;
+    transition: all 0.2s ease;
+}
+
+/* Selected correct answer */
+.answer.selected.correct {
+    border-color: #4CAF50;        /* green stroke */
+    background-color: #DFF5E0;    /* soft green bg */
+    color: #4CAF50;               /* green text */
+}
+
+.answer.selected.correct::after {
+    background-color: #4CAF50;    /* filled green circle */
+    border-color: #4CAF50;        /* circle stroke green */
+}
+
+/* Selected wrong answer */
 .answer.selected.wrong {
-    background: #F44336; /* red */
-    color: #fff;
-}
-.feedback {
-    display: none;
-    margin-top: 12px;
-    padding: 10px 16px;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 16px;
-    text-align: center;
+    border-color: #F44336;        /* red stroke */
+    background-color: #FDE2E2;    /* soft red bg */
+    color: #F44336;               /* red text */
 }
 
-/* Feedback text */
-.correct-feedback {
-    display: none;
-    font-size: 14px;
-    background-color: #DFF5E0;
-    /* soft green */
-    color: #4CAF50;
-    margin-top: 8px;
+.answer.selected.wrong::after {
+    background-color: #F44336;    /* filled red circle */
+    border-color: #F44336;        /* circle stroke red */
 }
 
-.correct-feedback.show {
-    display: block;
-    background-color: #FDE2E2;
-    /* soft red */
-    color: #F44336;
-    font-weight: 600;
+
+/* Shake animation for wrong answers */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-5px); }
+  40% { transform: translateX(5px); }
+  60% { transform: translateX(-5px); }
+  80% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.answer.wrong.shake {
+  animation: shake 0.4s ease;
+}
+
+
+.answer-zone {
+  min-height: 40px;
+  margin: 10px 0;
+  border: 2px dashed #aaa;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  background: #fafafa;
+}
+
+.word-bank {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.word {
+  padding: 6px 10px;
+  background: #e0e0e0;
+  border-radius: 6px;
+  cursor: grab;
+  user-select: none;
+}
+
+.word.dragging {
+  opacity: 0.5;
 }
